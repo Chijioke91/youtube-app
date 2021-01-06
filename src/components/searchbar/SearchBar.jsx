@@ -10,7 +10,7 @@ const SearchBar = () => {
 
   useEffect(() => {
     fetchVideos('cars');
-  }, []);
+  }, [fetchVideos]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
