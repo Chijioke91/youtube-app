@@ -12,7 +12,11 @@ export const VideoProvider = ({ children }) => {
   const fetchVideos = async (term) => {
     try {
       const res = await youtube.get('/search', { params: { q: term } });
-      setState({ ...state, videos: res.data.items });
+      setState((prevState) => ({
+        ...prevState,
+        videos: res.data.items,
+        selectedVideo: res.data.items[0],
+      }));
     } catch (e) {
       throw new Error(e.message);
     }

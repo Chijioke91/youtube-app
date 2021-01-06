@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import VideoContext from '../../context/VideoContext';
 
 const SearchBar = () => {
@@ -7,6 +7,10 @@ const SearchBar = () => {
   const { fetchVideos } = useContext(VideoContext);
 
   const onChange = (e) => setTerm(e.target.value);
+
+  useEffect(() => {
+    fetchVideos('cars');
+  }, []);
 
   const onSubmit = async (e) => {
     e.preventDefault();
