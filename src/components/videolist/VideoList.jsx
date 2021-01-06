@@ -3,7 +3,9 @@ import VideoContext from '../../context/VideoContext';
 import VideoItem from '../videoitem/VideoItem';
 
 const VideoList = () => {
-  const { videos } = useContext(VideoContext);
+  const { state } = useContext(VideoContext);
+
+  const { videos } = state;
 
   const renderedList = videos?.map((video, idx) => (
     <VideoItem video={video} key={idx} />
